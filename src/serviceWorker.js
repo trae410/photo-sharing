@@ -72,9 +72,9 @@ function registerValidSW(swUrl, config) {
               // content until all client tabs are closed.
               console.log(
                 'New content is available and will be used when all ' +
-                  'tabs for this page are closed or window is Hard Refreshed. Synchronized tabs enabled.'
+                  'tabs for this page are closed. Synchronized tabs enabled.'
               );
-              window.location.reload(true);
+              // window.location.reload(true);
               let windowResult = window.confirm('New content available, click OK to get updates');
               if (windowResult) {
                 window.location.reload(true)

@@ -8,7 +8,6 @@ import Heading from './components/Heading/Heading';
 import Search from './components/Search/Search';
 import Profile from './components/Profile/Profile';
 import UploadForm from './components/UploadForm/UploadForm';
-// import { GridContent, Spinner } from './components/formatting';
 import LoginForm from './components/LoginForm/LoginForm';
 import { loginStatus } from './firebase/auth';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
