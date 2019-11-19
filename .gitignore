@@ -24,3 +24,5 @@ yarn-error.log*
 /storage.rules
 /firestore.rules
 .firebase
+/firebase.json
+/firestore.indexes.json
