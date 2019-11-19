@@ -174,12 +174,3 @@ exports.deleteUser = functions.https.onCall((data, context) => {
 	})
 
 });
-
-// verify the uid a different way... more secure this way? 
-// could a user on client end set the params for context?
-	// return admin.auth().verifyIdToken(data.idToken).then(decodedToken => {
-		
-	// 	// check if admin or user
-	// 	if ( idToken.admin !== true  || idToken.uid !== decodedToken.uid ) {
-	//     return { value: false, error: 'Users can only delete their own accounts', decodedToken }
-	//   }
