@@ -28,6 +28,7 @@ export function register(config) {
       // Our service worker won't work if PUBLIC_URL is on a different origin
       // from what our page is served on. This might happen if a CDN is used to
       // serve assets; see https://github.com/facebook/create-react-app/issues/2374
+      console.log("origins dont match", publicUrl.origin, window.location.origin)
       return;
     }
 
@@ -43,7 +44,7 @@ export function register(config) {
         navigator.serviceWorker.ready.then(() => {
           console.log(
             'This web app is being served cache-first by a service ' +
-              'worker. To learn more, visit https://bit.ly/CRA-PWA'
+              'worker!'
           );
         });
       } else {
@@ -71,8 +72,13 @@ function registerValidSW(swUrl, config) {
               // content until all client tabs are closed.
               console.log(
                 'New content is available and will be used when all ' +
-                  'tabs for this page are closed. See https://bit.ly/CRA-PWA.'
+                  'tabs for this page are closed or window is Hard Refreshed. Synchronized tabs enabled.'
               );
+              window.location.reload(true);
+              let windowResult = window.confirm('New content available, click OK to get updates');
+              if (windowResult) {
+                window.location.reload(true)
+              }
 
               // Execute callback
               if (config && config.onUpdate) {
