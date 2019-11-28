@@ -6,6 +6,7 @@ export function loginStatus(setUserObject, userData, setUserData, setSpinnerDisp
 	firebase.auth().onAuthStateChanged(user => {
 		setUserObject(user);
 		if (user) {
+			console.log(user.uid);
 
   		return (
   			user.getIdTokenResult().then(idTokenResult => {
@@ -79,8 +80,3 @@ export function logUserIn(email, password, setUserObject, errorFunction) {
 		return errorFunction(err)
 	})
 };
-
-// export function passwordReset(email) {
-// 	firebase.auth().sendPasswordResetEmail(email)
-
-// }
