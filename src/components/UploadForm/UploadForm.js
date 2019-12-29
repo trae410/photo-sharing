@@ -75,8 +75,8 @@ const UploadForm = ({ userData }) => {
 			return setErrorText('Sorry theres a maximum upload of 15 images per day')
 		};
 
-		if (totalUploadSize >= 1700000) {
-			setErrorText('Sorry, only 1.7MB or less allowed per upload. your upload is ' + (totalUploadSize / 1000000) + 'MB');
+		if (totalUploadSize >= 5000000) {
+			setErrorText('Sorry, only 5MB or less allowed per upload. your upload is ' + (totalUploadSize / 1000000) + 'MB');
 		};
 
 		const fileInput = document.getElementById('file-input');
@@ -106,7 +106,7 @@ const UploadForm = ({ userData }) => {
 				return setErrorText('Sorry theres a maximum upload of 10 images at a time');
 			};
 
-			if (j + file.size < 1700000) {
+			if (j + file.size < 5000000) {
 					let fileReader = new FileReader();
 			    fileReader.onload = () => {
 			    	if (isVideo) {
@@ -147,7 +147,7 @@ const UploadForm = ({ userData }) => {
 			    j += file.size;
 
 			} else {
-				return setErrorText('Sorry, only 1.7MB or less allowed per upload. your upload is ' + ((totalUploadSize + file.size) / 1000000) + 'MB');
+				return setErrorText('Sorry, only 5MB or less allowed per upload. your upload is ' + ((totalUploadSize + file.size) / 1000000) + 'MB');
 			}		
 			setTotalUploadSize(j);
 		};
@@ -156,8 +156,8 @@ const UploadForm = ({ userData }) => {
 	const fileRemovedHandler = id => {
 		const newImages = images.filter(img => {
 			if (img.tempId === id) {
-				if (totalUploadSize - img.file.size > 1700000) {
-					setErrorText('Sorry, only 1.7MB or less allowed per upload')
+				if (totalUploadSize - img.file.size > 5000000) {
+					setErrorText('Sorry, only 5MB or less allowed per upload')
 				};
 				console.log(totalUploadSize, img.file.size)
 				let newTotalUploadSize = totalUploadSize;
@@ -188,9 +188,9 @@ const UploadForm = ({ userData }) => {
 			} else {
 				return false
 			};
-			if (totalUploadSize > 1700000) {
+			if (totalUploadSize > 5000000) {
 
-				return setErrorText('Sorry, only 1.7MB or less allowed per upload. your upload is ' + (totalUploadSize / 1000000) + 'MB');
+				return setErrorText('Sorry, only 5MB or less allowed per upload. your upload is ' + (totalUploadSize / 1000000) + 'MB');
 			};
 
 			setUploadProgress(uploadProgress => ({...uploadProgress, display: 'block'})); //change this to simply overwrite?
